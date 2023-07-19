@@ -1,0 +1,14 @@
+#Run docker port 8080
+docker run -d --name my-nginx -p 8080:80 nginx
+
+#open in docker
+docker exec -it my-nginx bash
+
+#position
+usr/share/nginx/html#
+
+#Run And Get files
+docker run -d --name my-nginx -p 8080:80 -v ~/Nginx/nginx_project/nginx_project/demo:/usr/share/nginx/html nginx
+
+#Run And Edit files nginx conf
+docker run -d --name my-nginx -p 8080:80 -v ~/Nginx/nginx_project/nginx_project/demo:/usr/share/nginx/html -v /Nginx/nginx_project/nginx_project/config:/etc/nginx/nginx.conf nginx
