@@ -12,7 +12,7 @@ sudo apt-get install nano
 usr/share/nginx/html#
 
 #Run And Get files
-docker run -d --name my-nginx -p 8080:80 -v ~/Nginx/nginx_project/demo:~/usr/share/nginx/html nginx
+docker run -d --name my-nginx -p 8080:80 -v Nginx/nginx_project/demo: usr/share/nginx/html nginx
 
 #Run And Edit files nginx conf
 docker run -d --name my-nginx -p 8080:80 -v ~/Nginx/nginx_project/demo:~/usr/share/nginx/html -v ~/Nginx/nginx_project/config/nginx.conf:~/etc/nginx/nginx.conf nginx
@@ -21,3 +21,18 @@ docker run -d --name my-nginx -p 8080:80 -v ~/Nginx/nginx_project/demo:~/usr/sha
 ~/etc/nginx
 
 docker run -d --name my-nginx -p 8080:80 -v ~/Nginx/nginx_project/demo:~/usr/share/nginx/html nginx -v ~/Nginx/nginx_project/config:~/etc/nginx/nginx.conf nginx
+
+
+docker run -d --name my-nginx -p 8080:80 -v /home/phanurat/Nginx/nginx_project/demo:/usr/share/nginx/html -v /home/phanurat/Nginx/nginx_project/config/nginx.conf:~/etc/nginx/nginx.conf nginx
+
+docker run -d --name my-nginx -p 8080:80 -v $(pwd)/Nginx/nginx_project/demo:/usr/share/nginx/html -v $(pwd)/Nginx/nginx_project/config/nginx.conf:/etc/nginx/nginx.conf nginx
+
+ls -l $(pwd)/Nginx/nginx.conf
+
+-rw-r--r-- 1 www-data www-data 1234 Jul 29 10:00 $(pwd)/Nginx/nginx.conf
+
+
+#Check Nginx.conf
+sudo nginx -t
+
+sudo systemctl reload nginx
