@@ -1,0 +1,23 @@
+h1, h2, h3, h4, h5, h6 {
+  color : gold;
+  text-transform: uppercase;
+}
+
+div.card .card-text {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  color: gold;
+}
+
+a {
+  color: darkgoldenrod;
+}
+
+a:hover {
+  color: goldenrod;
+  text-decoration: none;
+}
+
+div.form-group label {
+  font-weight: bold;
+}
