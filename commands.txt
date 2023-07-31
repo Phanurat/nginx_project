@@ -36,3 +36,20 @@ ls -l $(pwd)/Nginx/nginx.conf
 sudo nginx -t
 
 sudo systemctl reload nginx
+
+
+
+#install php-fpm
+apt-get update
+
+#install php-fpm
+apt-get install php-fpm
+
+#list service
+service --status-all
+
+#service 
+service php7.3-fpm start
+service php7.3-fpm stop
+service php7.3-fpm restart
+service php7.3-fpm status
