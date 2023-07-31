@@ -67,3 +67,20 @@ docker run -d --name my-api-1 -p 3001:3000 -v /home/phanurat/nginx_project/db/db
 docker run -d --name my-api-2 -p 3002:3000 -v $(pwd)/nginx_project/db/db2.json:/usr/app/db.json olanlab/json-server
 docker run -d --name my-api-3 -p 3003:3000 -v $(pwd)/nginx_project/db/db3.json:/usr/app/db.json olanlab/json-server
 docker run -d --name my-api-4 -p 3004:3000 -v $(pwd)/nginx_project/db/db4.json:/usr/app/db.json olanlab/json-server
+
+
+#HTTPS OpenSSL
+apt-get update
+apt-get install openssl
+
+#make dir >ssl and create ssl
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/self.key -out /etc/nginx/ssl/self.crt
+
+#req = requease, + -x509 create to self, #days scope = 365 days + nodes not to endcrypt, rsa:2048 = rsa is encode:2048bit
+#if not self not -x509 days not
+
+#install clone image
+docker stop my-nginx
+docker commit my-nginx nginx-ssl
+
+docker rm my-nginx
