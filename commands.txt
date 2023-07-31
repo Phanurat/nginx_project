@@ -27,7 +27,7 @@ docker run -d --name my-nginx -p 8080:80 -v /home/phanurat/Nginx/nginx_project/d
 
 docker run -d --name my-nginx -p 8080:80 -v $(pwd)/Nginx/nginx_project/demo:/usr/share/nginx/html -v $(pwd)/Nginx/nginx_project/config/nginx.conf:/etc/nginx/nginx.conf nginx
 
-ls -l $(pwd)/Nginx/nginx.conf
+ls -l $(pwd)/nginx_project/nginx.conf
 
 -rw-r--r-- 1 www-data www-data 1234 Jul 29 10:00 $(pwd)/Nginx/nginx.conf
 
@@ -60,4 +60,10 @@ docker run -d --name my-api -p 3000:3000 olanlab/json-server
 
 #db json 4 files
 #to /db/db1.json:/usr/app#
-docker run -d --name my-api-1 -p 3001:3000 olanlab/json-server
+
+docker run -d --name my-api-1 -p 3001:3000 -v /home/phanurat/nginx_project/db/db1.json:/usr/app/db olanlab/json-server
+
+docker run -d --name my-api-1 -p 3001:3000 -v /home/phanurat/nginx_project/db/db1.json:/usr/app/db.json olanlab/json-server
+docker run -d --name my-api-2 -p 3002:3000 -v $(pwd)/nginx_project/db/db2.json:/usr/app/db.json olanlab/json-server
+docker run -d --name my-api-3 -p 3003:3000 -v $(pwd)/nginx_project/db/db3.json:/usr/app/db.json olanlab/json-server
+docker run -d --name my-api-4 -p 3004:3000 -v $(pwd)/nginx_project/db/db4.json:/usr/app/db.json olanlab/json-server
