@@ -53,3 +53,7 @@ service php7.3-fpm start
 service php7.3-fpm stop
 service php7.3-fpm restart
 service php7.3-fpm status
+
+#Server Reverse Proxy
+#create server 
+docker run -d --name my-api -p 3000:3000 olanlab/json-server
