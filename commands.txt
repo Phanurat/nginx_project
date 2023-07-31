@@ -57,3 +57,7 @@ service php7.3-fpm status
 #Server Reverse Proxy
 #create server 
 docker run -d --name my-api -p 3000:3000 olanlab/json-server
+
+#db json 4 files
+#to /db/db1.json:/usr/app#
+docker run -d --name my-api-1 -p 3001:3000 olanlab/json-server
